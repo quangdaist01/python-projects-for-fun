@@ -1,6 +1,7 @@
 /venv/
-/automate_email.py
-/OOP_project_1.py
-/OOP_project_2.py
-/OOP_project_3.py
-/requesting.py
+/Auto_send_email/automate_email.py
+/Python_DeepDive/OOP_project_1.py
+/Python_DeepDive/OOP_project_2.py
+/Python_DeepDive/OOP_project_3.py
+/Auto_send_email/requesting.py
+/Auto_send_email/test_jinja2.py
