@@ -1,0 +1,17 @@
+Bộ dữ liệu này được thu thập từ cơ sở dữ liệu của trang TuyenSinh247.com
+Cách thức thu thập là sử dụng thư viện requests và beautifulsoup4 trong Python để trích xuất dữ liệu điểm cần thiết. 
+
+Mục tiêu của bộ dữ liệu này là dùng để vẽ biểu đồ mô tả điểm thi đầu vào THPT ngành Công nghệ Thông tin của các trường thuộc khối ĐHQG - TP HCM trong 5 năm gần nhất (từ 2016 đến 2020)
+
+
+RangeIndex: 73 entries, 0 to 72
+Data columns (total 5 columns):
+ #   Column      Non-Null Count  Dtype 
+---  ------      --------------  ----- 
+ 0   Mã trường   73 non-null     object
+ 1   Tên trường  73 non-null     object
+ 2   Tên ngành   73 non-null     object
+ 3   Điểm        73 non-null     object
+ 4   Năm         73 non-null     int64 
+
+Lưu ý: Do ĐH Bách Khoa không có ngành có tên chính thức là Công nghệ Thông tin nên tác giả lấy dữ liệu điểm của 2 ngành tương tự là Khoa học máy tính và Kỹ thuật máy tính

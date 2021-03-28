@@ -1,0 +1,7 @@
+How to run the script:
+- Move to the folder that contains the script file preprocessing.py
+- Open commandline interface (Windows + R => type 'cmd')
+- Run this command: python preprocessing.py
+
+# Prerequisite: Python 3+ installed on the computer
+
