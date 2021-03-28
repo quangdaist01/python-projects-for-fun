@@ -29,6 +29,6 @@ class TrungTamDayKem_Scrapy:
         else:
             return ''.join([f'{code} || {subject} \n{time} \n{location} \n\n' for course in matched_courses['courses']])
 
-if name == '__main__':
+if __name__ == '__main__':
     result = TrungTamDayKem_Scrapy()
     print(result.find_courses(loc="Thủ Đức", gen="Sinh viên Nam"))
