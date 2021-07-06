@@ -17,7 +17,7 @@ msg['Subject'] = "Thông tin các khóa dạy thêm phù hợp"
 # get courses information
 response = TrungTamDayKem_Scrapy(loc="Thủ Đức", gen='Sinh viên Nam')
 plain_text = response.render_raw()
-html_text = response.render_html("Auto_send_email/mail-portfolio-master/index.html")
+html_text = response.render_html()
 
 # turn these in to plain/html MIMEtext objects
 part1 = MIMEText(plain_text, 'plain')
