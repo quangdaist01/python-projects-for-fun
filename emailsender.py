@@ -10,7 +10,9 @@ class EmailSender:
         self.password = password
         self.message = MIMEMultipart("alternative")
 
-    def make_message_with(self, *, subject="Subject", plain_text="Text", html_text=None):
+    def make_message_with(self, *, subject="Subject", plain_text, html_text=None):
+        if plain_text is None:
+            plain_text = "No text found"
         self.message['From'] = self.sender
         self.message['Subject'] = subject
         self.message.attach(MIMEText(plain_text, "plain"))
