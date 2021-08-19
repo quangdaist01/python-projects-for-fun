@@ -16,6 +16,7 @@ class EmailSender:
         self.message['From'] = self.sender
         self.message['Subject'] = subject
         self.message.attach(MIMEText(plain_text, "plain"))
+        return self
 
     def send_message_to(self, *, receiver=config.RECEIVER):
         self.message['To'] = receiver
@@ -24,6 +25,7 @@ class EmailSender:
             server.login(self.sender, self.password)
             server.send_message(self.message)
         print("Send successfully!")
+        return self
 
 
 if __name__ == "__main__":
