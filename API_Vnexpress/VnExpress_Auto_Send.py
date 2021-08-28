@@ -23,4 +23,4 @@ for post in many_posts:
     if is_vaccine_doses_post(post):
         posts_info += post.title + "\n" + post.link + "\n"
 
-EmailSender().make_message_with(subject="Tin tức vaccine", plain_text=posts_info).send_message_to()
+EmailSender().make_message(subject="Tin tức vaccine", plain_text=posts_info).send_message()

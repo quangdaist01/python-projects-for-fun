@@ -8,9 +8,7 @@ from datetime import datetime
 import time
 
 bot = CTSV_API()
-email_bot = EmailSender()
 
 if bot.hasNewArticle():
     new_articles = bot.getLatestArticle()
-    email_bot.make_message_with(subject="[CSTV] Thông báo mới", plain_text=new_articles)
-    email_bot.send_message_to()
+    EmailSender().make_message(subject="[CSTV] Thông báo mới", plain_text=new_articles).send_message()
