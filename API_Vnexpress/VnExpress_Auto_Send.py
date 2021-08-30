@@ -6,11 +6,6 @@ from emailsender import EmailSender
 import datetime
 import re
 
-vnexpress_feed = feedparser.parse('https://vnexpress.net/rss/tin-moi-nhat.rss')
-laodong_feed = feedparser.parse('https://laodong.vn/rss/home.rss')
-tuoitre_feed = feedparser.parse('https://vnexpress.net/rss/tin-moi-nhat.rss')
-many_posts = vnexpress_feed.entries + laodong_feed.entries + tuoitre_feed.entries
-
 
 def is_vaccine_doses_post(post):
     doses_keywords = ["triệu", "ngàn"]
@@ -36,9 +31,16 @@ def is_recently_published(post, minutes_ago=15):
     return current_time - published_time < duration
 
 
-posts_info = ""
-for post in many_posts:
-    if is_vaccine_doses_post(post) and is_recently_published(post):
-        posts_info += post.title + "\n" + post.link + "\n"
+if __name__ == "__main__":
+    vnexpress_feed = feedparser.parse('https://vnexpress.net/rss/tin-moi-nhat.rss')
+    laodong_feed = feedparser.parse('https://laodong.vn/rss/home.rss')
+    tuoitre_feed = feedparser.parse('https://vnexpress.net/rss/tin-moi-nhat.rss')
+    many_posts = vnexpress_feed.entries + laodong_feed.entries + tuoitre_feed.entries
 
-EmailSender().make_message(subject="Tin tức vaccine", plain_text=posts_info).send_message()
+    vaccine_posts = ""
+    for post in many_posts:
+        if is_vaccine_doses_post(post) and is_recently_published(post):
+            vaccine_posts += post.title + "\n" + post.link + "\n"
+
+    if vaccine_posts:
+        EmailSender().make_message(subject="Tin tức vaccine", plain_text=vacine_posts).send_message()
