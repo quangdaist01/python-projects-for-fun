@@ -14,57 +14,57 @@ class CTSV_API:
         self.current_date = datetime.now().date()
         self.raw_content = soup.select_one(
             "#block-views-front-page-block-block-3 > div > div > div.view-content > table > tbody").contents
-        self.all_articles = self._removeRedundantNewlineIn(self.raw_content)
+        self.all_articles = self._remove_redundant_newlineIn(self.raw_content)
 
     @staticmethod
-    def convertDate(str_date):
+    def convert_date(str_date):
         return datetime.strptime(str_date, '%d/%m/%Y').date()
 
     @staticmethod
-    def _removeRedundantNewlineIn(content):
+    def _remove_redundant_newlineIn(content):
         return [article for article in content if article != "\n"]
 
-    def getTitleLinkDate(self, article_item):
+    def get_title_link_date(self, article_item):
         title_tag = article_item.select_one("td").contents[1]
         date_line = article_item.select_one("td").contents[2]  # Format: " -     dd/mm/yyyy"
         return title_tag.text, title_tag.get("href"), date_line.split().pop()
 
-    def hasNewArticle(self):
+    def has_new_articles(self):
         newest_ariticle = self.all_articles[0]
-        *_, date = self.getTitleLinkDate(newest_ariticle)
-        if self.convertDate(date) == self.current_date:
+        *_, date = self.get_title_link_date(newest_ariticle)
+        if self.convert_date(date) == self.current_date:
         # if self.convertDate(date) == demo_date:
             return True
         return False
 
-    def getLatestArticle(self, type = "raw"):
+    def get_newest_articles(self, type ="raw"):
         new_articles = []
         for item in self.all_articles:
-            title, link, date = self.getTitleLinkDate(item)
-            if self.convertDate(date) == self.current_date:
+            title, link, date = self.get_title_link_date(item)
+            if self.convert_date(date) == self.current_date:
             # if self.convertDate(date) == demo_date:
                 new_articles.append((title, link, date))
         if type == "raw":
-            return self._renderRaw(new_articles)
+            return self._render_raw(new_articles)
         elif type == "html":
-            return self._renderHtml(new_articles)
+            return self._render_html(new_articles)
         else:
             None
 
     @staticmethod
-    def _renderRaw(articles):
+    def _render_raw(articles):
         raw_text = ""
         for title, link, date in articles:
             raw_text += date + "\n" + title + "\n" + "ctsv.uit.edu.vn" + link  + "\n\n"
         return raw_text
 
     @staticmethod
-    def _renderHtml(articles):
+    def _render_html(articles):
         pass
 
 if __name__=="__main__":
     bot = CTSV_API()
-    moi_nhat = bot.hasNewArticle()
-    article_list = bot.getLatestArticle()
+    moi_nhat = bot.has_new_articles()
+    article_list = bot.get_newest_articles()
     print(article_list)
 
