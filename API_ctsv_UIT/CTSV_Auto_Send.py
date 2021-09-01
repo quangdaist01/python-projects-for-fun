@@ -9,6 +9,6 @@ import time
 
 bot = CTSV_API()
 
-if bot.has_new_articles():
+if bot.is_recently_published(minutes_ago=300):
     new_articles = bot.get_newest_articles()
     EmailSender().make_message(subject="[CSTV] Thông báo mới", plain_text=new_articles).send_message()
