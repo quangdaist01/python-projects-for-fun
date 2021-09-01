@@ -1,6 +1,7 @@
 import sys
 
 sys.path.append(r"C:\\Users\quang\PycharmProjects\pythonProject3")
+sys.path.append('../')
 import feedparser
 from emailsender import EmailSender
 import datetime
@@ -42,5 +43,4 @@ if __name__ == "__main__":
         if is_vaccine_doses_post(post) and is_recently_published(post):
             vaccine_posts += post.title + "\n" + post.link + "\n"
 
-    if vaccine_posts:
-        EmailSender().make_message(subject="Tin tức vaccine", plain_text=vacine_posts).send_message()
+    EmailSender().make_message(subject="Tin tức vaccine", plain_text=vaccine_posts).send_message()
