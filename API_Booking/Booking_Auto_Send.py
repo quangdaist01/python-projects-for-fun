@@ -15,10 +15,10 @@ PRICE_LIMIT = 420000
 
 url = config.url
 with BookingAPI(RATES_SCORE, MIN_NUM_RATING, PRICE_LIMIT, hotel_only=True) as bot:
-    bot.getFilteredHotels(url)
-    bot.prettifyTerminal()
+    bot.get_filtered_hotels(url)
+    bot.prettify_terminal()
     plain_text = bot.renderRaw()
-    html = bot.renderHtml()
+    html = bot.render_html()
 
 text_part = MIMEText(plain_text, "plain")
 html_part = MIMEText(html, "html")
