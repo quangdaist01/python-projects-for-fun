@@ -36,7 +36,7 @@ class TrungTamDayKem_Scrapy:
     def render_html(self, file_path=None):
         html_data = self.render_raw(return_dict=True)
         with open(
-                file_path or "C:/Users/quang/PycharmProjects/pythonProject3/Auto_send_email/mail-portfolio-master/index.html",
+                file_path or "C:/Users/quang/PycharmProjects/pythonProject3/Trungtamdaykem_Scraper/mail-portfolio-master/index.html",
                 encoding='utf-8') as html:
             template = Template(html.read())
         return template.render(location=html_data['location'],

@@ -3,7 +3,7 @@
 import sys
 sys.path.append(r"C:\\Users\quang\PycharmProjects\pythonProject3")
 from emailsender import EmailSender
-from API_ctsv_UIT.ctsv_api import CTSV_API
+from CSTV_UIT_Scraper.ctsv_api import CTSV_API
 from datetime import datetime
 import time
 

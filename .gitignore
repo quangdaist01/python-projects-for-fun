@@ -1,11 +1,11 @@
 /venv/
-/Auto_send_email/automate_email.py
+/Trungtamdaykem_Scraper/automate_email.py
 /Python_DeepDive/OOP_project_1.py
 /Python_DeepDive/OOP_project_2.py
 /Python_DeepDive/OOP_project_3.py
-/Auto_send_email/requesting.py
-/Auto_send_email/test_jinja2.py
+/Trungtamdaykem_Scraper/requesting.py
+/Trungtamdaykem_Scraper/test_jinja2.py
 /config.py
-/API_Booking/chromedriver.exe
-/API_Trello/trello api token.txt
+/Booking_Scraper/chromedriver.exe
+/Trello_API/trello api token.txt
 /Python_DeepDive/Working_with_files.py
